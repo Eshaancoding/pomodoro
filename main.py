@@ -12,7 +12,7 @@ break_time_dur = input("How long will you relax for each session? (Enter in hour
 session_num = input("How many sessions will you take? (Enter an integer. You can type 'None' if you want to repeat until Ctrl+C is pressed) ")
 tips = input("Any tips you would like to give? (You could type 'None' if you would not like to give a tip) ") 
 string_print += "Make sure you turn up your volume so you could hear the bell! Press Ctrl + C to stop the program at any time. \n"
-string_print += "Current date and time: \n"
+string_print += "Current date and time: "
 string_print += str(now.strftime('%Y-%m-%d %H:%M:%S')) + "\n"
 session_num_counter = 1
 state = "Study"
@@ -54,8 +54,6 @@ while True:
             os.system("$PlayWav=New-Object System.Media.SoundPlayer")
             os.system("$PlayWav.SoundLocation='" + directory+"'")
             os.system("$PlayWav.playsync()")
-        else:
-            os.system("play ")
 
 
         string_print += " 00:00:00 \n"
