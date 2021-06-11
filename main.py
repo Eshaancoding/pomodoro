@@ -2,6 +2,7 @@ import time
 import os
 import platform
 import datetime
+from playsound import playsound
 now = datetime.datetime.now()
 # Note: Supported on Mac, Linux, and Windows Powershell (not command prompt)
 
@@ -13,7 +14,7 @@ session_num = input("How many sessions will you take? (Enter an integer. You can
 tips = input("Any tips you would like to give? (You could type 'None' if you would not like to give a tip) ") 
 string_print += "Make sure you turn up your volume so you could hear the bell! Press Ctrl + C to stop the program at any time. \n"
 string_print += "Current date and time: "
-string_print += str(now.strftime('%Y-%m-%d %H:%M:%S')) + "\n"
+string_print += str(now.strftime('%d-%m-%Y %H:%M')) + "\n"
 session_num_counter = 1
 state = "Study"
 
@@ -49,13 +50,7 @@ while True:
     
     if timer_hour == -1:
         # timer done
-        if platform.system() == 'Windows':
-            directory = os.getcwd() + '\\sound.wav'
-            os.system("$PlayWav=New-Object System.Media.SoundPlayer")
-            os.system("$PlayWav.SoundLocation='" + directory+"'")
-            os.system("$PlayWav.playsync()")
-
-
+        playsound("sound.wav")
         string_print += " 00:00:00 \n"
         if state == "Study":
             state = "Break"
